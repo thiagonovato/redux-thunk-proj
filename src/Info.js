@@ -9,15 +9,19 @@ export class Info extends Component {
     }
 
     render() {
+        if (this.props.isFetching) {
+            return <span>Loading...</span>
+        }
         return (
-            <span>Info</span>
+            <span>Info: {this.props.data.origin}</span>
         )
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        isFetching: state.isFetching
+        isFetching: state.isFetching,
+        data: state.data
     }
 }
 
